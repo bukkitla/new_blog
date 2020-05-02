@@ -22,8 +22,16 @@
 <main role="main" class="container">
   <div class="row">
     <div class="col-md-8">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible">
+            <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            {{message}}</div>
+        {% endfor %}
+        {% endif %}
       {% block content %}{% endblock %}
     </div>
+
     <div class="col-md-4">
       <div class="content-section">
         <h3>Our Sidebar</h3>
