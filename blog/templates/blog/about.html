@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    {% if title %}
-    <title>DjangoBlog-{{title}}</title>
-    {% else %}
-    <title>DjangoBlog</title>
-    {% endif %}
-</head>
-<body>
-<h2>About Page</h2>
-</body>
-</html>
+{% extends "blog/base.html" %}
+
+{% block content %}
+<h2>About Page2</h2>
+
+{% endblock %}
+
