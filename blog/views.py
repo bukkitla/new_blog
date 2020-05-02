@@ -14,10 +14,11 @@ posts=[
      'date_posted':'28 AUG 2018'
      }
 ]
-
-context={'posts':posts}
+title='Homepage'
+context={'posts':posts,'title':title}
 
 def home(request):
+
     return render(request,'blog/home.html',context=context)
 
 def about(request):
