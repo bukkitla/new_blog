@@ -17,3 +17,12 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('post-detail',kwargs={'pk':self.pk})
 
+
+
+class PropertiesTab(models.Model):
+    desc=models.CharField(max_length=500)
+    content=models.CharField(max_length=5000)
+
+    def __str__(self):
+        return self.desc
+

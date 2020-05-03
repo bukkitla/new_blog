@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.models import User
 from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView
-from . models import Post
+from . models import Post,PropertiesTab
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 # Create your views here.
 
@@ -15,7 +15,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 #     return render(request,'blog/home.html',context=context)
 
 def about(request):
-    return render(request,'blog/about.html')
+    allprop = PropertiesTab.objects.get(desc='year')
+
+    context = {'allprop': allprop}
+    return render(request,'blog/about.html',context=context)
 
 class PostListView(ListView):
     model = Post
@@ -69,3 +72,8 @@ class UserPostListView(ListView):
     def get_queryset(self):
         user= get_object_or_404(User,username=self.kwargs.get('username'))
         return Post.objects.filter(author=user)
+
+
+
+
+
